@@ -6,36 +6,21 @@ namespace Lesson2.Controllers
     [ApiController]
     public class MarginController : ControllerBase
     {
-        // GET: api/<MarginController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            return "I want to go home!!!";
         }
 
-        // GET api/<MarginController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<MarginController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<MarginController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<MarginController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public List<string> Delete(string str)
         {
+            var s = Strings.lst.FirstOrDefault(x => x.Equals(str));
+            if (s != null)
+            {
+                Strings.lst.Remove(s);
+            }
+            return Strings.lst;
         }
     }
 }
