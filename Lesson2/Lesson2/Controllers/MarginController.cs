@@ -22,5 +22,11 @@ namespace Lesson2.Controllers
             }
             return Strings.lst;
         }
+        [HttpPost]
+        public List<string> Post([FromBody] string value)
+        {
+            Strings.lst.Add(value);
+            return Strings.lst;
+        }
     }
 }
